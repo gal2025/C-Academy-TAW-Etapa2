@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto de Tecnologias de Aplicações Web</title>
+    <link rel="stylesheet" href="Css/style.css" />
+    <script src="Script/script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Tecnologias de Aplicações Web</h1>
+      <nav>
+        <ul>
+          <li><a href="#" id="link-home">Home</a></li>
+          <li><a href="#" id="link-conta">A minha conta</a></li>
+          <li><a href="#" id="link-admin" style="display: none;">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- View HOME -->
+      <div id="view-home" class="view" style="display: none;">
+        <section id="conteudo">
+        <h2>25 de Abril Sempre!</h2>
+
+        <p>
+          A Revolução de 25 de Abril de 1974, também conhecida como Revolução
+          dos Cravos, Revolução de Abril ou apenas por 25 de Abril, refere-se a
+          um evento da história de Portugal resultante do movimento político e
+          social, ocorrido a 25 de abril de 1974, que depôs o regime ditatorial
+          do Estado Novo, vigente desde 1933, e que iniciou um processo que
+          viria a terminar com a implantação de um regime democrático e com a
+          entrada em vigor da nova Constituição a 25 de abril de 1976, marcada
+          por forte orientação socialista.
+        </p>
+        </section>
+        <section id="video">
+        <h3>Vídeo sobre 25 de Abril</h3>
+        <p>Para assistir ao vídeo, visite: <a href="https://www.youtube.com/watch?v=it1rTvBcfRg" target="_blank">YouTube</a></p>
+        </section>
+
+        <section id="tabela">
+        <h3>Tabela de Recursos do Projeto</h3>
+        <table>
+          <tr>
+            <th></th>
+            <th>Recurso</th>
+            <th>Tipo de Ficheiro</th>
+            <th>Utilização</th>
+          </tr>
+
+          <tr>
+            <td><img src="img/logo_html.png" height="50px" /></td>
+            <td>Hypertext Markup Language</td>
+            <td>.html</td>
+            <td>Permite descrever conteúdo de páginas web</td>
+          </tr>
+
+          <tr>
+            <td><img src="img/logo_css.png" height="50px" /></td>
+            <td>Cascading Style Sheets</td>
+            <td>.css</td>
+            <td>
+              Responsável pela apresentação e formatação dos elementos HTML
+            </td>
+          </tr>
+
+          <tr>
+            <td><img src="img/logo_js.png" height="50px" /></td>
+            <td>Javascript</td>
+            <td>.js</td>
+            <td>Permite adicionar comportamento no cliente (browser)</td>
+          </tr>
+        </table>
+        </section>
+      </div>
+
+      <!-- View LOGIN (Predefinida sem sessão) -->
+      <div id="view-login" class="view" style="display: block;">
+        <div id="contenedor-formulario">
+          <div id="login-box">
+            <h2>Login</h2>
+            <form name="login">
+              <div class="form-group">
+                <label for="nomeUtilizador">Nome de Utilizador:</label>
+                <input
+                  type="text"
+                  id="nomeUtilizador"
+                  name="nomeUtilizador"
+                  placeholder="Nome de Utilizador"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="palavrapasse">Palavra-passe:</label>
+                <input
+                  type="password"
+                  id="palavrapasse"
+                  name="palavrapasse"
+                  placeholder="Palavra-passe"
+                  required
+                />
+              </div>
+
+              <button
+                type="button"
+                id="btn-login"
+                class="btn btn-primary"
+              >
+                Entrar
+              </button>
+              <button
+                type="button"
+                id="btn-ir-registo"
+                class="btn btn-secondary"
+              >
+                Mudar para Registo
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- View REGISTO -->
+      <div id="view-registo" class="view" style="display: none;">
+        <div id="contenedor-formulario">
+          <div id="registo-box">
+            <h2 id="titulo-registo">Registo de Novo Utilizador</h2>
+            <form id="form-registo" name="registo">
+              <div class="form-group">
+                <label for="nomeUtilizadorReg">Nome de Utilizador:</label>
+                <input
+                  type="text"
+                  id="nomeUtilizadorReg"
+                  name="nomeUtilizador"
+                  placeholder="Nome de Utilizador"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="palavrapasseReg">Palavra-passe:</label>
+                <input
+                  type="password"
+                  id="palavrapasseReg"
+                  name="palavrapasse"
+                  placeholder="Palavra-passe"
+                  required
+                />
+              </div>
+
+              <div class="form-group form-group-file">
+                <label for="foto">Foto de Perfil:</label>
+                <input type="file" name="foto" id="foto" accept="image/*" />
+              </div>
+
+              <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Nome Completo"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="telemovel">Telemóvel:</label>
+                <input
+                  type="text"
+                  id="telemovel"
+                  name="telemovel"
+                  placeholder="Telemóvel"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="nif">NIF (9 dígitos):</label>
+                <input type="text" id="nif" name="nif" placeholder="NIF" required />
+              </div>
+
+              <div class="form-group">
+                <label for="morada">Morada:</label>
+                <input
+                  type="text"
+                  id="morada"
+                  name="morada"
+                  placeholder="Morada"
+                  required
+                />
+              </div>
+
+              <button type="submit" id="btn-submit-registo" class="btn btn-primary">Registar</button>
+              <button
+                type="button"
+                id="btn-voltar-registo"
+                class="btn btn-secondary"
+              >
+                Voltar ao Login
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- View PERFIL -->
+      <div id="view-perfil" class="view" style="display: none;">
+        <div id="contenedor-formulario">
+          <div id="caixa-perfil">
+            <div class="cabecalho-perfil">
+              <h2>Olá <span id="nome-titulo-perfil"></span></h2>
+            </div>
+
+            <div class="principal-perfil">
+              <div class="detalhes-perfil">
+                <div class="linha-detalhe">
+                  <span class="etiqueta-detalhe">Nome:</span>
+                  <strong id="nome-utilizador"></strong>
+                </div>
+                <div class="linha-detalhe">
+                  <span class="etiqueta-detalhe">Email:</span>
+                  <strong id="email-utilizador"></strong>
+                </div>
+                <div class="linha-detalhe">
+                  <span class="etiqueta-detalhe">Telemóvel:</span>
+                  <strong id="telemovel-utilizador"></strong>
+                </div>
+                <div class="linha-detalhe">
+                  <span class="etiqueta-detalhe">Nome de Utilizador:</span>
+                  <strong id="nome-utilizador-username"></strong>
+                </div>
+                <div class="linha-detalhe">
+                  <span class="etiqueta-detalhe">NIF:</span>
+                  <strong id="nif-utilizador"></strong>
+                </div>
+                <div class="linha-detalhe">
+                  <span class="etiqueta-detalhe">Morada:</span>
+                  <strong id="morada-utilizador"></strong>
+                </div>
+              </div>
+
+              <div class="avatar-perfil">
+                <div class="moldura-avatar">
+                  <img
+                    id="foto-perfil"
+                    src="img/foto_perfil.jpg"
+                    alt="Foto de Perfil"
+                    class="foto-perfil"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              id="btn-logout-perfil"
+              class="btn btn-terminar-sessao"
+            >
+              Sair da Conta (Logout)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- View ADMIN -->
+      <div id="view-admin" class="view" style="display: none;">
+        <div id="contenedor-formulario">
+          <div id="caixa-lista">
+            <h2 style="margin-bottom: 20px">Lista de Utilizadores Registados</h2>
+
+            <table class="tabela-utilizadores">
+              <thead>
+                <tr>
+                  <th>Foto</th>
+                  <th>Username</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>NIF</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-tabela-utilizadores"></tbody>
+            </table>
+
+            <button
+              type="button"
+              id="btn-logout-admin"
+              class="btn btn-terminar-sessao"
+            >
+              Sair da Conta (Logout)
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>
+        © C-ACADEMY 2025 Projeto Módulo de Tecnologias de Aplicações Web.
+        Desenvolvido por Grupo 02 [Rita Bastos, Paulo Patrão, Leonardo Freitas,
+        João Galriça]
+      </p>
+    </footer>
+  </body>
+</html>

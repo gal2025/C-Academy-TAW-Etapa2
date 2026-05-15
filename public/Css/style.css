@@ -1,0 +1,468 @@
+/* ======================================================= */
+/* 1. CONFIGURAÇÕES GERAIS E RESET                         */
+/* ======================================================= */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1 {
+  color: rgb(90, 195, 178);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+h2,
+h3 {
+  color: rgb(90, 195, 178);
+  margin-bottom: 0.625em;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+}
+
+/* Tabelas globais (aplicado a qualquer tabela não específica) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+table img {
+  width: 3.5rem;
+  margin: auto;
+}
+
+/* ======================================================= */
+/* 2. ESTRUTURA E LAYOUT                                   */
+/* ======================================================= */
+header {
+  background-color: #000;
+  padding: 1.5em 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 0.8em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: rgb(90, 195, 178);
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 1.5em; /* Unificado o valor 20px e 1.5em originais */
+}
+
+footer {
+  background-color: #333;
+  color: #bbb;
+  text-align: center;
+  padding: 1em; /* Corrigido de "em" para "1em" */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+section {
+  background-color: #fff;
+  padding: 1em;
+  border: #ccc solid 1px;
+  border-radius: 10px;
+}
+
+.view {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Forçar largura de caixas específicas (herdado do original) */
+#login-box,
+#registo-box,
+#caixa-perfil,
+#caixa-lista {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* ======================================================= */
+/* 3. COMPONENTES E FORMULÁRIOS                            */
+/* ======================================================= */
+form {
+  padding: 50px;
+}
+
+#contenedor-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2em;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgb(90, 195, 178);
+  box-shadow: 0 0 4px rgba(90, 195, 178, 0.3);
+}
+
+.form-group-file {
+  display: grid;
+  gap: 0.75em;
+}
+
+.form-group-file input[type="file"] {
+  width: 100%;
+  padding: 0.75em 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Botões Padrão */
+.btn {
+  width: 100%;
+  padding: 0.8em;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5em;
+}
+
+.btn-primary,
+.btn-secondary {
+  background-color: rgb(90, 195, 178);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: rgb(70, 175, 158);
+}
+
+.btn-primary {
+  margin-top: 1em;
+}
+
+/* Botão específico para uploads de ficheiros */
+.btn-file {
+  display: inline-block;
+  width: 100%;
+  padding: 0.8em; /* Merge com os valores da 2ª definição original */
+  background-color: rgb(90, 195, 178);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-file:hover {
+  background-color: rgb(70, 175, 158);
+}
+
+/* ======================================================= */
+/* 4. VIEW: HOME                                           */
+/* ======================================================= */
+@media (min-width: 768px) {
+  #view-home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5em;
+    grid-template-areas:
+      "conteudo2 video2"
+      "tabela2 tabela2";
+  }
+}
+
+#conteudo {
+  grid-area: conteudo2;
+}
+
+#video {
+  grid-area: video2;
+}
+
+#tabela {
+  grid-area: tabela2;
+}
+
+/* ======================================================= */
+/* 5. VIEW: LOGIN E REGISTO                                */
+/* ======================================================= */
+#login-box,
+#registo-box {
+  background-color: #fff;
+  padding: 2.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+#login-box {
+  max-width: 400px;
+}
+
+#registo-box {
+  max-width: 450px;
+}
+
+#login-box h2,
+#registo-box h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  color: rgb(90, 195, 178);
+}
+
+#login-box form,
+#registo-box form {
+  padding: 0;
+}
+
+/* ======================================================= */
+/* 6. VIEW: PERFIL                                         */
+/* ======================================================= */
+#caixa-perfil {
+  background-color: #fff;
+  padding: 2.5em;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 680px;
+}
+
+.cabecalho-perfil {
+  margin-bottom: 1.75em;
+}
+
+#caixa-perfil h2 {
+  text-align: left;
+  margin: 0;
+  color: rgb(90, 195, 178);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.principal-perfil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.detalhes-perfil {
+  flex: 1 1 320px;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 0.7em 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.linha-detalhe:last-child {
+  border-bottom: none;
+}
+
+.etiqueta-detalhe {
+  color: rgb(90, 195, 178);
+  font-weight: 700;
+}
+
+.detalhes-perfil strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.avatar-perfil {
+  flex: 0 0 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moldura-avatar {
+  width: 170px;
+  height: 170px;
+  padding: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(90, 195, 178, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto-perfil {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.btn-terminar-sessao {
+  width: 100%;
+  background-color: #ff6b4d;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-terminar-sessao:hover {
+  background-color: #e6513c;
+}
+
+@media (max-width: 720px) {
+  .principal-perfil {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .avatar-perfil {
+    margin: 0 auto;
+  }
+
+  .linha-detalhe {
+    grid-template-columns: 1fr;
+  }
+
+  .etiqueta-detalhe {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* ======================================================= */
+/* 7. VIEW: ADMIN (LISTA DE UTILIZADORES)                  */
+/* ======================================================= */
+#caixa-lista {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.tabela-utilizadores {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tabela-utilizadores th,
+.tabela-utilizadores td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.tabela-utilizadores th {
+  background-color: #f4f4f4;
+}
+
+.btn-editar {
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.btn-editar:hover {
+  background-color: #e0a800;
+}
+
+.btn-remover {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-remover:hover {
+  background-color: #cc0000;
+}
