@@ -37,6 +37,15 @@ const MENSAGENS = {
 };
 
 // ==========================================
+// SANITIZAÇÃO (DOMPurify)
+// ==========================================
+
+function sanitizar(texto) {
+    return DOMPurify.sanitize(texto ? texto.trim() : '');
+}
+
+
+// ==========================================
 // INICIALIZAÇÃO
 // ==========================================
 
@@ -345,15 +354,13 @@ async function registarUtilizador(evento) {
     evento.preventDefault();
   }
 
-  const nomeUtilizador =
-    document.getElementById("nomeUtilizadorReg")?.value.trim() || "";
-  const palavrapasse =
-    document.getElementById("palavrapasseReg")?.value.trim() || "";
-  const nome = document.getElementById("nome")?.value.trim() || "";
-  const email = document.getElementById("email")?.value.trim() || "";
-  const telemovel = document.getElementById("telemovel")?.value.trim() || "";
-  const nif = document.getElementById("nif")?.value.trim() || "";
-  const morada = document.getElementById("morada")?.value.trim() || "";
+  const nomeUtilizador = sanitizar(document.getElementById("nomeUtilizadorReg")?.value) || "";
+  const palavrapasse = document.getElementById("palavrapasseReg")?.value.trim() || "";
+  const nome = sanitizar(document.getElementById("nome")?.value) || "";
+  const email = sanitizar(document.getElementById("email")?.value) || "";
+  const telemovel = sanitizar(document.getElementById("telemovel")?.value) || "";
+  const nif = sanitizar(document.getElementById("nif")?.value) || "";
+  const morada = sanitizar(document.getElementById("morada")?.value) || "";
   const elementoFoto = document.getElementById("foto");
   const foto =
     elementoFoto && elementoFoto.files ? elementoFoto.files[0] : null;
@@ -500,10 +507,8 @@ async function autenticarUtilizador(evento) {
     evento.preventDefault();
   }
 
-  const nomeUtilizador =
-    document.getElementById("nomeUtilizador")?.value.trim() || "";
-  const palavrapasse =
-    document.getElementById("palavrapasse")?.value.trim() || "";
+  const nomeUtilizador = sanitizar(document.getElementById("nomeUtilizador")?.value) || "";
+  const palavrapasse = document.getElementById("palavrapasse")?.value.trim() || "";
 
   const mensagemValidacao = validarAutenticacao(nomeUtilizador, palavrapasse);
   if (mensagemValidacao) {
