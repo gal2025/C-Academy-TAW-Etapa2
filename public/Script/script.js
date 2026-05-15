@@ -393,14 +393,14 @@ async function registarUtilizador(evento) {
 
   // Criar o objeto de dados (Payload) para enviar ao servidor
   const newUserPayload = {
-    username: nomeUtilizador,
+    username: DOMPurify.sanitize(nomeUtilizador),
     password: palavrapasse,
-    fotografia: fotoBase64, // Convertido para string Base64
-    nome: nome,
-    email: email,
-    telemovel: telemovel, // O nome do campo é 'telemovel' (ver User.js)
-    nif: nif,
-    morada: morada, // O nome do campo é 'morada' (ver User.js)
+    fotografia: DOMPurify.sanitize(fotoBase64), // Convertido para string Base64
+    nome: DOMPurify.sanitize(nome),
+    email: DOMPurify.sanitize(email),
+    telemovel: DOMPurify.sanitize(telemovel), // O nome do campo é 'telemovel' (ver User.js)
+    nif: DOMPurify.sanitize(nif),
+    morada: DOMPurify.sanitize(morada), // O nome do campo é 'morada' (ver User.js)// O nome do campo é 'morada' (ver User.js)
   };
 
   const isEditing = !!utilizadorEmEdicaoId;
