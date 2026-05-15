@@ -1,3 +1,6 @@
+// Carregar variáveis de ambiente do arquivo .env
+require('dotenv').config();
+
 const express = require('express'); // Importa o Express (padrão da indústria em Node.js para criar servidores web, rotas API (REST) e middleware)
 const mongoose = require('mongoose'); // Importa o Mongoose para interação com a base de dados
 const path = require('path');
@@ -5,7 +8,7 @@ const app = express(); // Cria uma instância da aplicação. Será utilizado pa
 const cors = require('cors');           // Para a segurança do frontend
 const helmet = require('helmet');   // Para segurança geral
 const morgan = require('morgan');   // Para logging dos pedidos HTTP do cliente
-const PORT = process.env.PORT || 3000; // Define o número da porta de rede onde o servidor web irá estar à escuta de pedidos
+const PORT = process.env.PORT ; // Define o número da porta de rede onde o servidor web irá estar à escuta de pedidos
  
 // Middlewares
 app.use(express.json()); // Para interpretar o corpo dos pedidos HTTP como JSON
@@ -17,7 +20,7 @@ app.use(helmet());                // Define cabeçalhos de resposta HTTP relacio
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules'))); 
 
 // Define a string de conexão a partir da variável de ambiente (MONGO_URI)
-const DB_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/projeto-db';
+const DB_URI = process.env.MONGO_URI ;
  
 mongoose.connect(DB_URI) // Inicia a tentativa de conexão assíncrona à base de dados MongoDB
     .then(() => { // Esta função é executada apenas se a ligação à base de dados for bem-sucedida

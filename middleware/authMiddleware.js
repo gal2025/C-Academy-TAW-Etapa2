@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET || 'a_vossa_chave_secreta_muito_segura';
+const JWT_SECRET = process.env.JWT_SECRET ;
 
 exports.verificarToken = (req, res, next) => {
     const authHeader = req.headers.authorization;
