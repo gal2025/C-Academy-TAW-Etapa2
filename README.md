@@ -17,6 +17,6 @@ Aceder em: http://localhost:3000
 | Username | admin       |
 | Password | Admin@12345 |
 
-## Criar o administrador (apenas uma vez)
+## Criar o administrador (apenas uma vez): correr no terminal o seguinte:
 
 node scripts/seedAdmin.js
