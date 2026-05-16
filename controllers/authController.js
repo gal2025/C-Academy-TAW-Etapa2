@@ -1,8 +1,9 @@
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');     
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'a_vossa_chave_secreta_muito_segura'; 
-const TOKEN_EXPIRATION = '1h';
+const JWT_SECRET = process.env.JWT_SECRET ; 
+const TOKEN_EXPIRATION = process.env.TOKEN_EXPIRATION;
 
 exports.register = async (req, res) => {
      try {
@@ -62,12 +63,14 @@ exports.login = async (req, res) => {
             });
         }
  
-            const passwordCorreta = await user.compararPassword(password);
-if (!passwordCorreta) {
-    return res.status(401).json({
-        success: false, message: 'Credenciais inválidas.'
-    });
-}
+            const isMatch = await bcrypt.compare(password, user.password);
+
+            if (!isMatch) {
+                return res.status(401).json({
+                    success: false, 
+                    message: 'Credenciais inválidas.'
+                });
+            }    
           
       const payload = {
             id: user._id,

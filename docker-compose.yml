@@ -9,7 +9,7 @@ services:
       # Monta o código local para que as alterações se reflitam no container (Live Reload)
       - .:/usr/src/app
       # Evita que a pasta node_modules local sobrescreva a do container
-      - /usr/src/app/node_modules 
+      - node_modules:/usr/src/app/node_modules
     depends_on:
       - mongodb
     environment:
@@ -33,3 +33,4 @@ services:
     
 volumes:
   mongo-data:
+  node_modules:
